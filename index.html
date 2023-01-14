@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style/style.css" />
+    <script src="scripts/script.js" defer></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <div style="display: flex; justify-content: space-around; flex-wrap: wrap">
+      <div
+        style="display: flex; border: 15px solid #342c2c; width: 360px"
+        id="board-holder"
+      ></div>
+
+      <div class="dash-board">
+        <div class="info">
+          <h1 id="instruction">Vision</h1>
+          <h1 id="score-board">Score: 0</h1>
+          <h1 id="counter">00:00</h1>
+        </div>
+        <div id="result"></div>
+        <div id="drop-menu">
+          <label for="timer" class="for-timer">Set Time:</label>
+          <select name="timer" id="timer">
+            <option value="30">30 Seconds</option>
+            <option value="20">20 Seconds</option>
+            <option value="10">10 Seconds</option>
+          </select>
+          <label for="color" class="for-timer">Choose Color:</label>
+          <select name="color" id="color">
+            <option value="white">White</option>
+            <option value="black">Black</option>
+          </select>
+        </div>
+        <div class="btn-holder">
+          <button class="btn" id="btn">Start</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

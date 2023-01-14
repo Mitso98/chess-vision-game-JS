@@ -1,0 +1,84 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.dash-board {
+  width: 50vw;
+  background-color: black;
+}
+
+@media screen and (max-width: 720px) {
+  .dash-board {
+    width: 100vw;
+    background-color: black;
+  }
+}
+
+div.info {
+  display: flex;
+  justify-content: space-between;
+}
+
+#instruction {
+  margin-left: 50px;
+  color: white;
+  text-align: center;
+}
+
+#score-board {
+  color: white;
+}
+
+#counter {
+  margin-right: 50px;
+  color: white;
+}
+
+#result {
+  height: 250px;
+  border: 1px solid gray;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#drop-menu {
+  display: flex;
+  justify-content: center;
+}
+
+div.btn-holder {
+  display: flex;
+  justify-content: center;
+}
+
+label.for-timer {
+  color: white;
+}
+
+.btn {
+  background-color: #7fa650;
+  width: 200px;
+  height: 5rem;
+  margin-top: 5px;
+  display: inline;
+  margin: 0 auto;
+  border-radius: 10px;
+  font-size: 2.2rem;
+  font-weight: 800;
+  line-height: 1.2;
+  border: none;
+  color: #ffffff;
+  text-shadow: 0 0.1rem 0 rgb(0 0 0 / 40%);
+  transition: all 0.07s;
+  box-shadow: 0 0.3rem 0 0 #537133, 0 0.7rem 0.95rem 0.05rem rgb(0 0 0 / 20%);
+  cursor: pointer;
+}
+
+.btn:hover {
+  box-shadow: 0 0 10px #84ff00, 0 0 40px #84ff00, 0 0 80px #84ff00;
+}
