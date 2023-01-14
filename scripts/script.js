@@ -43,9 +43,9 @@ class Game {
 
     text.innerHTML = `${click}`;
 
-    text.style.position = "relative";
-    text.style.right = "50%";
-    text.style.top = "50%";
+    text.style.position = "absolute";
+    text.style.right = "80vw";
+    text.style.top = "35vh";
     text.style.transform = "translateX(-50%);translateX(-50%)";
     text.style.color = "wheat";
     text.style.fontSize = "80px";
@@ -107,9 +107,9 @@ class Game {
 
     text.innerHTML = `${counter}`;
 
-    text.style.position = "relative";
-    text.style.right = "50%";
-    text.style.top = "50%";
+    text.style.position = "absolute";
+    text.style.right = "80vw";
+    text.style.top = "35vh";
     text.style.transform = "translateX(-50%);translateX(-50%)";
     text.style.color = "wheat";
     text.style.fontSize = "80px";
