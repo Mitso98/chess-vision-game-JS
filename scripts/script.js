@@ -179,6 +179,7 @@ function drawChessBoard(chessColor = "white") {
   // column
   for (let i = 0; i < 8; i++) {
     const row = document.createElement("div");
+    row.style.width = "200px";
     //row
     for (let j = 0; j < 8; j++) {
       // toggle color
@@ -197,8 +198,8 @@ function drawChessBoard(chessColor = "white") {
       chessColor === "white" ? `` : ``;
       // styling
       childDiv.style.display = "flex";
-      childDiv.style.width = "2.8rem";
-      childDiv.style.height = "2.8rem";
+      childDiv.style.width = "100%";
+      childDiv.style.height = "9.4vh";
 
       childDiv.style.backgroundColor = color;
 
