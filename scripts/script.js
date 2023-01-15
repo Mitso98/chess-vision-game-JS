@@ -79,7 +79,7 @@ class Game {
     div.style.flexDirection = "column";
     div.style.width = "30px";
     //style img
-    img.src = res["result"] ? "../img/tick.JPG" : "../img/cross.JPG";
+    img.src = res["result"] ? "./img/tick.jpg" : "./img/cross.jpg";
     p.innerHTML = res["click"];
     p.style.textAlign = "center";
     p.style.color = "white";
