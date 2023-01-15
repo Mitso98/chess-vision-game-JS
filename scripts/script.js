@@ -49,6 +49,7 @@ class Game {
   }
   static showInsAtCenter(click) {
     const span = document.getElementById("show-ins-at-center");
+    span.innerHTML = "";
     span.innerText = click;
 
     setTimeout(function () {
