@@ -20,6 +20,29 @@ body {
   flex-grow: 1;
 }
 
+#show-ins-at-center {
+  position: absolute;
+  right: 68%;
+  top: 25%;
+  transform: translateX(-50%);
+  color: white;
+  font-weight: 900;
+  font-size: 150px;
+  pointer-events: none;
+}
+@media only screen and (max-width: 600px) {
+  #show-ins-at-center {
+    position: absolute;
+    right: 5%;
+    top: 30%;
+    transform: translateX(-50%);
+    color: white;
+    font-weight: 900;
+    font-size: 150px;
+    pointer-events: none;
+  }
+}
+
 .dash-board {
   width: 50vw;
   background-color: black;

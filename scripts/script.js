@@ -16,8 +16,10 @@ class Game {
     ) {
       Game.setScore();
       Game.clickedSquare[Game.counter]["result"] = true;
+      Game.showFeedBackOnBoardSquare(Game.clickedSquare[Game.counter]);
     } else {
       Game.clickedSquare[Game.counter]["result"] = false;
+      Game.showFeedBackOnBoardSquare(Game.clickedSquare[Game.counter]);
     }
 
     Game.declareResult(Game.clickedSquare[Game.counter]);
@@ -29,34 +31,28 @@ class Game {
   static increaseCounter() {
     Game.counter++;
   }
+  static showFeedBackOnBoardSquare(res) {
+    const getSquare = document.getElementById(res["click"]);
+    getSquare.style.backgroundColor = res["result"] ? "green" : "red";
+    setTimeout(() => {
+      const colorMenu = document.getElementById("color");
+      const boardHolder = document.getElementById("board-holder");
+
+      boardHolder.innerHTML = "";
+      drawChessBoard(colorMenu.value);
+    }, 600);
+  }
   static setScore() {
     Game.score++;
     const scoreElm = document.getElementById("score-board");
     scoreElm.innerHTML = `Score: ${Game.score}`;
   }
   static showInsAtCenter(click) {
-    const boardHolder = document.getElementById("board-holder");
-    if (document.getElementById("declare-selection"))
-      boardHolder.removeChild(document.getElementById("declare-selection"));
-    const text = document.createElement("h1");
-    text.id = "declare-selection";
-
-    text.innerHTML = `${click}`;
-
-    text.style.position = "absolute";
-    text.style.right = "80vw";
-    text.style.top = "35vh";
-    text.style.transform = "translateX(-50%);translateX(-50%)";
-    text.style.color = "wheat";
-    text.style.fontSize = "80px";
-    text.style.display = "inline";
-    text.style.height = "fit-content";
-    text.style.pointerEvents = "none";
-
-    boardHolder.appendChild(text);
+    const span = document.getElementById("show-ins-at-center");
+    span.innerText = click;
 
     setTimeout(function () {
-      boardHolder.removeChild(text);
+      span.innerHTML = "";
     }, 800);
   }
   static genrateRandomInstructions() {
@@ -93,34 +89,16 @@ class Game {
     setTimeout(() => {
       const counterElm = document.getElementById("counter");
       counterElm.innerText = `00:${time}`;
-      console.log(time);
       if (time > 0) Game.timeKeeper(time - 1);
       else Game.endGame(time);
     }, 1000);
   }
   static countBeforeStart(time = 10000, counter = 3) {
-    const boardHolder = document.getElementById("board-holder");
-    if (document.getElementById("declare-selection"))
-      boardHolder.removeChild(document.getElementById("declare-selection"));
-    const text = document.createElement("h1");
-    text.id = "declare-selection";
+    const span = document.getElementById("show-ins-at-center");
+    span.innerText = counter;
 
-    text.innerHTML = `${counter}`;
-
-    text.style.position = "absolute";
-    text.style.right = "80vw";
-    text.style.top = "35vh";
-    text.style.transform = "translateX(-50%);translateX(-50%)";
-    text.style.color = "wheat";
-    text.style.fontSize = "80px";
-    text.style.display = "inline";
-    text.style.height = "fit-content";
-    text.style.pointerEvents = "none";
-
-    boardHolder.appendChild(text);
     setTimeout(() => {
-      if (counter > 0) {
-        console.log(counter);
+      if (counter > 1) {
         Game.countBeforeStart(time, counter - 1);
       } else {
         const colorMenu = document.getElementById("color");
@@ -190,7 +168,7 @@ function drawChessBoard(chessColor = "white") {
       }
 
       const childDiv = document.createElement("div");
-      childDiv.className =
+      childDiv.id =
         chessColor === "white"
           ? `${8 - j}${String.fromCharCode(97 + i)}`
           : `${j + 1}${String.fromCharCode(104 - i)}`;
@@ -200,7 +178,6 @@ function drawChessBoard(chessColor = "white") {
       childDiv.style.display = "flex";
       childDiv.style.width = "100%";
       childDiv.style.height = "9.4vh";
-
       childDiv.style.backgroundColor = color;
 
       // write information
@@ -215,7 +192,7 @@ function drawChessBoard(chessColor = "white") {
 
         div2.style.textAlign = "right";
         div1.style.color = div2.style.color = "#eeeed2";
-
+        div1.style.pointerEvents = div2.style.pointerEvents = "none";
         childDiv.style.flexDirection = "column";
         childDiv.style.justifyContent = "space-between";
 
@@ -236,7 +213,7 @@ function drawChessBoard(chessColor = "white") {
 
       childDiv.onclick = (elm) => {
         if (Game.gameStarted === true) {
-          Game.setClickedSquare(elm.target.className);
+          Game.setClickedSquare(elm.target.id);
         }
       };
       row.appendChild(childDiv);
